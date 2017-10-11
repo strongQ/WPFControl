@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  >
+    
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Button/Themes/FlatButtonStyle.xaml" />
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Button/Themes/PathIconButtonStyle.xaml" />
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Icon/Themes/Generic.xaml" />
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/MessageBar/Themes/Generic.xaml" />
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/WatermarkTextBox/Themes/WatermarkTextBox.xaml" />
+        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Upload/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/StepBar/Themes/StepBar.xaml" />
+        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/ToolTip/Themes/ToolTip.xaml" />
+
+        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/TextBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/PageControl/Themes/Generic.xaml" />
+            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Combox/Themes/Generic.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    
+</ResourceDictionary>
