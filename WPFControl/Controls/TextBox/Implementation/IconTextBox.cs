@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     /// <summary>
     /// 带图标的文本输入框

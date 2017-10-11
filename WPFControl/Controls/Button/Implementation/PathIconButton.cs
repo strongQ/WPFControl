@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     /// <summary>
     /// 只有图标的按钮（不显示按钮文本）

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Net;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     public static class ImageExtensions
     {

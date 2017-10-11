@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     public class AngleBorder : Decorator
     {

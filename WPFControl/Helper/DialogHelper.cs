@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     public class DialogHelper 
     {

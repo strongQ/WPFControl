@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     #region IconType
     public enum EnumIconType
@@ -58,4 +58,36 @@ namespace JP.HCZZP.WPFApp.Infrastructure.Controls
         Large,
         None,
     }
+
+    #region EnumLoadingType
+    public enum EnumLoadingType
+    {
+        /// <summary>
+        /// 两个环形
+        /// </summary>
+        DoubleArc,
+        /// <summary>
+        /// 两个圆
+        /// </summary>
+        DoubleRound,
+        /// <summary>
+        /// 一个圆
+        /// </summary>
+        SingleRound,
+        /// <summary>
+        /// 仿Win10加载条
+        /// </summary>
+        Win10,
+        /// <summary>
+        /// 仿Android加载条
+        /// </summary>
+        Android,
+        /// <summary>
+        /// 仿苹果加载条
+        /// </summary>
+        Apple,
+        Cogs,
+        Normal,
+    }
+    #endregion
 }

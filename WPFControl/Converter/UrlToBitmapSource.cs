@@ -3,9 +3,9 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
-using JP.HCZZP.WPFApp.Infrastructure.Helper;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     public class UrlToBitmapSource : IValueConverter
     {

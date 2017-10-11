@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ZUI="clr-namespace:JP.HCZZP.WPFApp.Infrastructure.Controls">
+                    xmlns:ZUI="clr-namespace:WPFControl.Controls">
     <!--#region 图标-->
     <PathFigureCollection x:Key="RightPage">M1,1C4.986,1.803 6.338,4.023 10,5 10,5.667 10,6.333 10,7 6.328,7.884 4.948,10.099 1,11 1.333,8.667 1.667,6.333 2,4 1.667,4 1.333,4 1,4 1,3 1,2 1,1z</PathFigureCollection>
     <PathFigureCollection x:Key="LeftPage">M1,7C1,6.333 1,5.667 1,5 5.296,4.166 7.516,1.674 11,0 11,0.667 11,1.333 11,2 7.858,5.02 10.126,8.076 11,12 10.667,12 10.333,12 10,12 8.063,9.622 4.524,7.738 1,7z</PathFigureCollection>

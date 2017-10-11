@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     class IsFirstItemConverter: IMultiValueConverter
     {

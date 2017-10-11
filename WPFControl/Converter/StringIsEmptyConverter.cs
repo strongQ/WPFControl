@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     /// <summary>
     /// 判断值是否为空

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     internal static class TreeHelper
     {

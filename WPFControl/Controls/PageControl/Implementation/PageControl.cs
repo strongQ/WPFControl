@@ -1,4 +1,4 @@
-﻿using JP.HCZZP.WPFApp.Infrastructure.Controls.PagingControl.Params;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,8 +9,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using WPFControl.Controls.PagingControl.Params;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     [TemplatePart(Name = "PART_FirstPageButton", Type = typeof(Button)),
     TemplatePart(Name = "PART_PreviousPageButton", Type = typeof(Button)),

@@ -70,6 +70,8 @@
     <Compile Include="Controls\AutoSelectTextBox\Implementation\AutoSelectBehavior.cs" />
     <Compile Include="Controls\AutoSelectTextBox\Implementation\AutoSelectTextBox.cs" />
     <Compile Include="Controls\AutoSelectTextBox\Implementation\QueryMoveFocusEventArgs.cs" />
+    <Compile Include="Controls\BusyIndicator\Implementation\BusyIndicator.cs" />
+    <Compile Include="Controls\BusyIndicator\Implementation\BusyIndicatorAdorner.cs" />
     <Compile Include="Controls\Button\Implementation\FlatButton.cs" />
     <Compile Include="Controls\Button\Implementation\PathIconButton.cs" />
     <Compile Include="Controls\Combox\Implementation\ZComBox.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Controls\Grid\Implementation\PageSortingDataGrid.cs" />
     <Compile Include="Controls\Grid\Params\SortData.cs" />
     <Compile Include="Controls\Icon\Implementation\Icon.cs" />
+    <Compile Include="Controls\Loading\Implementation\Loading.cs" />
     <Compile Include="Controls\MessageBar\Implementation\MessageBar.cs" />
     <Compile Include="Controls\MessageBar\Implementation\MessageBarItem.cs" />
     <Compile Include="Controls\PageControl\Implementation\PageControl.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Converter\StringIsEmptyConverter.cs" />
     <Compile Include="Converter\StrToVisibleConverter.cs" />
     <Compile Include="Converter\UrlToBitmapSource.cs" />
+    <Compile Include="FTP.cs" />
     <Compile Include="Helper\DialogHelper.cs" />
     <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Helper\FileBinaryConvertHelper.cs" />
@@ -111,6 +115,7 @@
     <Compile Include="Helper\ImageExtensions.cs" />
     <Compile Include="Helper\TreeHelper.cs" />
     <Compile Include="Helper\WavPlayer.cs" />
+    <Compile Include="IFTPUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -124,6 +129,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UcWebVoice.xaml.cs">
+      <DependentUpon>UcWebVoice.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -135,6 +143,10 @@
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\BusyIndicator\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\Button\Themes\FlatButtonStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,6 +163,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Loading\Themes\Apple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Loading\Themes\Cogs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Loading\Themes\DoubleRound.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Loading\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Loading\Themes\Normal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Loading\Themes\SingleRound.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\MessageBar\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\StepBar\Themes\StepBar.xaml">
+    <Page Include="Controls\StepBar\Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -179,53 +215,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Style\Colors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Global.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\ButtonStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\CheckBoxStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Style\Themes\Colors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\Converters.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\Fonts.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\Images.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Style\Themes\RadioButtonStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Style\Themes\TextBlockStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UcWebVoice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +255,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <StartArguments />
   </PropertyGroup>

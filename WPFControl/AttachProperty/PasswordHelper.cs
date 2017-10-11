@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.AttachProperty
+namespace WPFControl.Controls.AttachProperty
 {
 	/// <summary>
 	/// 支持PasswordBox控件的绑定

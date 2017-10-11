@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     #region 获取附件二进制流
     /// <summary>

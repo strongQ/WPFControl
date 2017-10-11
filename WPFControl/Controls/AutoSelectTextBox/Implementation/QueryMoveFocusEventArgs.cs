@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     public delegate void QueryMoveFocusEventHandler(object sender, QueryMoveFocusEventArgs e);
     public class QueryMoveFocusEventArgs : RoutedEventArgs

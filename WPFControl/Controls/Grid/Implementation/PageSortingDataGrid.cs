@@ -1,4 +1,4 @@
-﻿using JP.HCZZP.WPFApp.Infrastructure.Controls.Grid.Params;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPFControl.Controls.Grid.Params;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     public class PageSortingDataGrid:DataGrid
     {

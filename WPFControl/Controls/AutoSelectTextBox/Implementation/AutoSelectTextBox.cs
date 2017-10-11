@@ -1,4 +1,4 @@
-﻿using JP.HCZZP.WPFApp.Infrastructure.Helper;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +8,9 @@ using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Input;
+using WPFControl.Helper;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls
+namespace WPFControl.Controls
 {
     public class AutoSelectTextBox : TextBox
     {

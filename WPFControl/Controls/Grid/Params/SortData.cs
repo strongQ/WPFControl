@@ -2,7 +2,7 @@
 using System.ComponentModel;
 
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls.Grid.Params
+namespace WPFControl.Controls.Grid.Params
 {
     public class SortData
     {

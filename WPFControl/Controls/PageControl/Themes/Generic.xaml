@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:JP.HCZZP.WPFApp.Infrastructure.Controls">
+                    xmlns:local="clr-namespace:WPFControl.Controls">
     <Style TargetType="{x:Type local:PageControl}">
         <Setter Property="Template">
             <Setter.Value>

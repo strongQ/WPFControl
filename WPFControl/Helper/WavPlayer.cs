@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     public static class WavPlayer
     {

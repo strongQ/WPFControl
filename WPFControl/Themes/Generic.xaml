@@ -3,18 +3,19 @@
                   >
     
         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Button/Themes/FlatButtonStyle.xaml" />
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Button/Themes/PathIconButtonStyle.xaml" />
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Icon/Themes/Generic.xaml" />
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/MessageBar/Themes/Generic.xaml" />
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/WatermarkTextBox/Themes/WatermarkTextBox.xaml" />
-        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Upload/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/StepBar/Themes/StepBar.xaml" />
-        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/ToolTip/Themes/ToolTip.xaml" />
+            <ResourceDictionary Source="/WPFControl;component/Controls/Button/Themes/FlatButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/Button/Themes/PathIconButtonStyle.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/Icon/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/MessageBar/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/WatermarkTextBox/Themes/WatermarkTextBox.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/Upload/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/StepBar/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/ToolTip/Themes/ToolTip.xaml" />
 
-        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/TextBox/Themes/Generic.xaml" />
-        <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/PageControl/Themes/Generic.xaml" />
-            <ResourceDictionary Source="/JP.HCZZP.WPFApp.Infrastructure;component/Controls/Combox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/TextBox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/PageControl/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/Combox/Themes/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/BusyIndicator/Themes/Generic.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
     

@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     /// <summary>
     /// string 为空，隐藏

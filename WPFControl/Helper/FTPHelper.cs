@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Windows.Media.Imaging;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Helper
+namespace WPFControl.Helper
 {
     #region 用法
     /* Create Object Instance */

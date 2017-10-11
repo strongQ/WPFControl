@@ -2,7 +2,8 @@
 using System.Globalization;
 using System.Windows;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     public class IntToValueConverter : System.Windows.Data.IValueConverter
     {

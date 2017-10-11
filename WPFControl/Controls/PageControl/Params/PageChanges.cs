@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Controls.PagingControl.Params
+namespace WPFControl.Controls.PagingControl.Params
 {
     internal enum PageChanges
     {

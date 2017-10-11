@@ -4,7 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     public class IsProgressedConverter : IMultiValueConverter
     {

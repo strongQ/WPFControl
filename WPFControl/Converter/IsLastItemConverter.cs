@@ -4,7 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     /// <summary>
     /// 判断是否为最后一项。true则隐藏，false则显示

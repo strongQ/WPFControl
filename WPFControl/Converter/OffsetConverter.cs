@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace JP.HCZZP.WPFApp.Infrastructure.Converter
+
+namespace WPFControl.Controls.Converter
 {
     public class OffsetConverter : IMultiValueConverter
     {
