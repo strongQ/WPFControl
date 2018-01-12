@@ -204,6 +204,52 @@
     </ControlTemplate>
 
 
+    <ControlTemplate x:Key="FBoder" TargetType="{x:Type My:FlatButton}">
+        <Border x:Name="border" 
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                SnapsToDevicePixels="true" UseLayoutRounding="True">
+            <Border  x:Name="borderchild" BorderBrush="{TemplateBinding BorderBrush}" Background="Transparent" BorderThickness="1" CornerRadius="{TemplateBinding CornerRadius}"   Margin="-2" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" />
+                </Border.Effect>
+
+                <AdornerDecorator>
+
+                    <ContentPresenter x:Name="contentPresenter" Grid.Column="1"
+                                  Margin="{TemplateBinding Padding}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Focusable="False" RecognizesAccessKey="True"
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                </AdornerDecorator>
+            </Border>
+
+        </Border>
+        <ControlTemplate.Triggers>
+
+
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter TargetName="border" Property="Opacity" Value="0.7"></Setter>
+                <Setter TargetName="borderchild" Property="Opacity" Value="0.7"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+                <Setter TargetName="contentPresenter" Property="Margin" Value="0,3,0,0" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+
+                <Setter TargetName="border" Property="BorderBrush" Value="white" />
+                <Setter TargetName="borderchild" Property="BorderBrush" Value="white"></Setter>
+                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="white" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
     <Style TargetType="{x:Type My:FlatButton}">
 
         <Setter Property="Width" Value="70" />
@@ -249,6 +295,10 @@
             </Trigger>
             <Trigger Property="Type" Value="warning">
                 <Setter Property="Background" Value="#FF9900" />
+            </Trigger>
+            <Trigger Property="Type" Value="Border">
+                <Setter Property="Template" Value="{StaticResource FBoder}"></Setter>
+
             </Trigger>
         </Style.Triggers>
     </Style>

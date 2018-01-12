@@ -68,7 +68,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachProperty\ControlAttachProperty.cs" />
+    <Compile Include="AttachProperty\EventBroker.cs" />
+    <Compile Include="AttachProperty\ParallaxHelper.cs" />
     <Compile Include="AttachProperty\PasswordHelper.cs" />
+    <Compile Include="AttachProperty\WeightedPanel.cs" />
+    <Compile Include="Controls\3D\Implementation\DockSlidePresenter.cs" />
     <Compile Include="Controls\AutoSelectTextBox\Implementation\AutoSelectBehavior.cs" />
     <Compile Include="Controls\AutoSelectTextBox\Implementation\AutoSelectTextBox.cs" />
     <Compile Include="Controls\AutoSelectTextBox\Implementation\QueryMoveFocusEventArgs.cs" />
@@ -77,29 +82,48 @@
     <Compile Include="Controls\Button\Implementation\FlatButton.cs" />
     <Compile Include="Controls\Button\Implementation\PathIconButton.cs" />
     <Compile Include="Controls\Combox\Implementation\ZComBox.cs" />
+    <Compile Include="Controls\Combox\MultiSelectCombox.xaml.cs">
+      <DependentUpon>MultiSelectCombox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ControlEnum.cs" />
+    <Compile Include="Controls\DateTimePicker\Implementation\DateTimePicker.cs" />
+    <Compile Include="Controls\DragPanel\CanvasDragDropAdvisor.cs" />
     <Compile Include="Controls\Grid\Implementation\PageSortingDataGrid.cs" />
     <Compile Include="Controls\Grid\Params\SortData.cs" />
     <Compile Include="Controls\Icon\Implementation\Icon.cs" />
     <Compile Include="Controls\Loading\Implementation\Loading.cs" />
+    <Compile Include="Controls\Magnifier\Implementation\MagnifyingAdorner.cs" />
     <Compile Include="Controls\MessageBar\Implementation\MessageBar.cs" />
     <Compile Include="Controls\MessageBar\Implementation\MessageBarItem.cs" />
+    <Compile Include="Controls\NumberBox\NumberBox.xaml.cs">
+      <DependentUpon>NumberBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PageControl\Implementation\PageControl.cs" />
     <Compile Include="Controls\PageControl\Params\IPageControlContract.cs" />
     <Compile Include="Controls\PageControl\Params\PageChangedEventArgs.cs" />
     <Compile Include="Controls\PageControl\Params\PageChanges.cs" />
+    <Compile Include="Controls\Panel\Implementation\EllipticalPanel.cs" />
+    <Compile Include="Controls\Panel\Implementation\RowsPanel.cs" />
     <Compile Include="Controls\StepBar\Implementation\StepBar.cs" />
     <Compile Include="Controls\StepBar\Implementation\StepBarItem.cs" />
     <Compile Include="Controls\TextBox\Implementation\IconTextBox.cs" />
+    <Compile Include="Controls\TimePicker\TimePicker.xaml.cs">
+      <DependentUpon>TimePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ToggleButton\Implementation\ZToggleButton.cs" />
     <Compile Include="Controls\ToolTip\Implementation\AngleBorder.cs" />
     <Compile Include="Controls\ToolTip\Implementation\DoubleHelper.cs" />
     <Compile Include="Controls\ToolTip\Implementation\ToolTip.cs" />
     <Compile Include="Controls\ToolTip\Implementation\UIElementEx.cs" />
+    <Compile Include="Controls\Transition\FadeTransition.cs" />
+    <Compile Include="Controls\Transition\SlideTransition.cs" />
+    <Compile Include="Controls\Transition\TransitionBase.cs" />
+    <Compile Include="Controls\Transition\TransitionContainer.cs" />
     <Compile Include="Controls\Upload\Implementation\Upload.cs" />
     <Compile Include="Controls\WatermarkTextBox\Implementation\WatermarkTextBox.cs" />
     <Compile Include="Converter\BoolToValueConverter.cs" />
     <Compile Include="Converter\DataTimeToStringConverter.cs" />
+    <Compile Include="Converter\HourConvert.cs" />
     <Compile Include="Converter\IntToValueConverter.cs" />
     <Compile Include="Converter\IsFirstItemConverter.cs" />
     <Compile Include="Converter\IsLastItemConverter.cs" />
@@ -131,6 +155,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Style\DifferentEffects.xaml.cs">
+      <DependentUpon>DifferentEffects.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\Animation\HorrorEyeControl.xaml.cs">
       <DependentUpon>HorrorEyeControl.xaml</DependentUpon>
     </Compile>
@@ -140,6 +167,11 @@
     <Compile Include="UcWebVoice.xaml.cs">
       <DependentUpon>UcWebVoice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DragDrop\DragDropManager.cs" />
+    <Compile Include="Utils\DragDrop\DrogPreviewAdorner.cs" />
+    <Compile Include="Utils\DragDrop\IDragSourceAdvisor.cs" />
+    <Compile Include="Utils\DragDrop\IDropTargetAdvisor.cs" />
+    <Compile Include="Utils\VisualHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -151,6 +183,14 @@
     <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\3D\Themes\DockSlideVisualTree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\3D\Themes\InternalResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\BusyIndicator\Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -163,7 +203,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\Combox\MultiSelectCombox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Combox\Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DateTimePicker\Themes\DateTimePickerStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DateTimePicker\Themes\DateTimePicker_CalendarStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,9 +247,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\Magnifier\Themes\Magnifier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MessageBar\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NumberBox\NumberBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\PageControl\Themes\Generic.xaml">
       <SubType>Designer</SubType>
@@ -211,6 +271,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\TimePicker\TimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ToolTip\Themes\ToolTip.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -223,6 +287,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\DifferentEffects.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Animation\HorrorEyeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +298,10 @@
     <Page Include="Themes\Animation\HoverAnimationResources.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Animation\ListBoxScale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Animation\MagicCircleControl.xaml">
       <SubType>Designer</SubType>

@@ -53,5 +53,75 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+
+
+
+
+        <!--源码用法
+        <MatrixTransform Matrix="M11 M12 M21 M22 OffsetX OffsetY"></MatrixTransform>
+        原坐标（x0，y0）通过这个3*3矩阵，通过矩阵乘法可得到坐标 (x0 * M11+x0 * M21,y0 * M12+y0 * M22)之后，
+        再加上 (OffsetX,OffsetY) 即可得到新坐标（x1，y1）。
+        也即是说最终坐标 (x1,y1) : x1 =  x0 * M11 + x0 * M21 + OffsetX , y1 = y0 * M12 + y0 * M22 + OffsetY.
+        -->
+        <Canvas Width="1200" Height="300">
+            <StackPanel Orientation="Horizontal" Canvas.Top="50">
+                <!-- TranslateTransform 平移 -->
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10" Opacity="0.5"></Image>
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10">
+                    <Image.RenderTransform>
+                        <MatrixTransform Matrix="1 0 0 1 -80 30"></MatrixTransform>
+                    </Image.RenderTransform>
+                </Image>
+
+                <!-- RotateTransform 旋转 -->
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10" Opacity="0.5"></Image>
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10">
+                    <Image.RenderTransform>
+                        <!-- 90°旋转 -->
+                        <MatrixTransform Matrix="0 1 -1 0 30 0"></MatrixTransform>
+                    </Image.RenderTransform>
+                </Image>
+
+                <!-- ScaleTransform 缩放 -->
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10" Opacity="0.5"></Image>
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10">
+                    <Image.RenderTransform>
+                        <!--放大1.5倍-->
+                        <MatrixTransform Matrix="1.5 0 0 1.5 -80 0"></MatrixTransform>
+                    </Image.RenderTransform>
+                </Image>
+
+                <!-- SkewTransform 扭曲倾斜 -->
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10" Opacity="0.5"></Image>
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10">
+                    <Image.RenderTransform>
+                        <!-- x轴倾斜 -->
+                        <MatrixTransform Matrix="1 0 1 1 -80 0"></MatrixTransform>
+                    </Image.RenderTransform>
+                </Image>
+
+                <!-- TransformGroup 扭曲、缩放 -->
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10" Opacity="0.5"></Image>
+                <Image Source="/WPFControl;component/Style/Images/wj.png" Height="100" Width="100" Stretch="Fill"
+                    Margin="10">
+                    <Image.RenderTransform>
+                        <!-- x轴倾斜 -->
+                        <!--放大1.5倍-->
+                        <MatrixTransform Matrix="1.5 0 1 1.5 -120 0"></MatrixTransform>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+        </Canvas>
+
+
     </Grid>
 </UserControl>

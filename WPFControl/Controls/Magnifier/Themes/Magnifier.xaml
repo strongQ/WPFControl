@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    >
+
+    <ControlTemplate x:Key="MagnifierTemplate"
+						 TargetType="{x:Type ContentControl}">
+        <Grid>
+            <Ellipse Stroke="#FF4D4D4D"
+						 StrokeThickness="2"
+						 HorizontalAlignment="Stretch"
+						 Margin="-10,0,-10,0">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF575757"
+										  Offset="0.957" />
+                        <GradientStop Color="#FF222222"
+										  Offset="1" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Ellipse x:Name="PART_MagnifyingView"
+						 Fill="{x:Null}"
+						 StrokeThickness="2"
+						 HorizontalAlignment="Stretch"
+						 Stroke="#FF747474"
+						 OpacityMask="{x:Null}" />
+            <Ellipse x:Name="Hilight"
+						 StrokeThickness="0"
+						 Stroke="{x:Null}"
+						 HorizontalAlignment="Stretch"
+						 Clip="M149.99973,2.5567822E-29 C199.18751,-2.8421703E-14 242.84556,23.675563 270.19983,60.252601 L271.551,62.152679 L266.41438,60.899227 C250.64147,57.258198 234.21175,55.333989 217.3326,55.333989 C121.68411,55.333989 40.467077,117.12252 11.419093,202.96194 L10.600928,205.482 L10.404483,205.00118 C3.6890505,187.97086 -2.8312139E-06,169.41623 1.6296407E-12,149.99997 C-2.8312139E-06,67.157275 67.157166,-2.8421703E-14 149.99973,2.5567822E-29 z">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#3FFFFFFF"
+										  Offset="1" />
+                        <GradientStop Color="#26FFFFFF"
+										  Offset="0" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+    </ControlTemplate>
+
+</ResourceDictionary>

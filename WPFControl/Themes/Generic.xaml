@@ -16,6 +16,12 @@
         <ResourceDictionary Source="/WPFControl;component/Controls/PageControl/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/Combox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/BusyIndicator/Themes/Generic.xaml" />
+
+
+
+        <ResourceDictionary Source="/WPFControl;component/Controls/DateTimePicker/Themes/DateTimePickerStyle.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/TimePicker/TimePicker.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/NumberBox/NumberBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
     
