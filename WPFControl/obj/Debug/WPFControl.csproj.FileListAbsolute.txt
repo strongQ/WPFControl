@@ -46,6 +46,6 @@ F:\git\WPFControl\WPFControl\obj\Debug\Themes\Animation\ListBoxScale.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\3D\Themes\DockSlideVisualTree.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\3D\Themes\InternalResources.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\Magnifier\Themes\Magnifier.baml
-F:\git\WPFControl\WPFControl\obj\Debug\WPFControl.csprojResolveAssemblyReference.cache
 F:\git\WPFControl\WPFControl\obj\Debug\Style\DifferentEffects.g.cs
 F:\git\WPFControl\WPFControl\obj\Debug\Style\DifferentEffects.baml
+F:\git\WPFControl\WPFControl\obj\Debug\Controls\GridExpander\Themes\Generic.baml

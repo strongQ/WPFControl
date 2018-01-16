@@ -88,6 +88,7 @@
     <Compile Include="Controls\ControlEnum.cs" />
     <Compile Include="Controls\DateTimePicker\Implementation\DateTimePicker.cs" />
     <Compile Include="Controls\DragPanel\CanvasDragDropAdvisor.cs" />
+    <Compile Include="Controls\GridExpander\Implementation\GridExpander.cs" />
     <Compile Include="Controls\Grid\Implementation\PageSortingDataGrid.cs" />
     <Compile Include="Controls\Grid\Params\SortData.cs" />
     <Compile Include="Controls\Icon\Implementation\Icon.cs" />
@@ -216,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DateTimePicker\Themes\DateTimePicker_CalendarStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GridExpander\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
