@@ -49,3 +49,5 @@ F:\git\WPFControl\WPFControl\obj\Debug\Controls\Magnifier\Themes\Magnifier.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Style\DifferentEffects.g.cs
 F:\git\WPFControl\WPFControl\obj\Debug\Style\DifferentEffects.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\GridExpander\Themes\Generic.baml
+F:\git\WPFControl\WPFControl\obj\Debug\Controls\Button\Themes\RotateButtonWithLayout.baml
+F:\git\WPFControl\WPFControl\obj\Debug\Controls\ListBox\Themes\ListBox.baml
