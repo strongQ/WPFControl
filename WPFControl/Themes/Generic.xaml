@@ -12,12 +12,14 @@
         <ResourceDictionary Source="/WPFControl;component/Controls/StepBar/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/ToolTip/Themes/ToolTip.xaml" />
 
-        <ResourceDictionary Source="/WPFControl;component/Controls/GridExpander/Implementation/Generic.xaml" />
+        <ResourceDictionary Source="/WPFControl;component/Controls/GridExpander/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/TextBox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/PageControl/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/Combox/Themes/Generic.xaml" />
         <ResourceDictionary Source="/WPFControl;component/Controls/BusyIndicator/Themes/Generic.xaml" />
 
+
+        <ResourceDictionary Source="/WPFControl;component/Controls/ToolTip/ToolTip2.xaml" />
 
 
         <ResourceDictionary Source="/WPFControl;component/Controls/DateTimePicker/Themes/DateTimePickerStyle.xaml" />

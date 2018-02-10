@@ -51,3 +51,5 @@ F:\git\WPFControl\WPFControl\obj\Debug\Style\DifferentEffects.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\GridExpander\Themes\Generic.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\Button\Themes\RotateButtonWithLayout.baml
 F:\git\WPFControl\WPFControl\obj\Debug\Controls\ListBox\Themes\ListBox.baml
+F:\git\WPFControl\WPFControl\obj\Debug\Controls\ToolTip\ToolTip2.baml
+F:\git\WPFControl\WPFControl\obj\Debug\WPFControl.csprojResolveAssemblyReference.cache

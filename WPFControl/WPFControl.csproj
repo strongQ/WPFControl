@@ -116,6 +116,9 @@
     <Compile Include="Controls\ToolTip\Implementation\DoubleHelper.cs" />
     <Compile Include="Controls\ToolTip\Implementation\ToolTip.cs" />
     <Compile Include="Controls\ToolTip\Implementation\UIElementEx.cs" />
+    <Compile Include="Controls\ToolTip\ToolTip2.xaml.cs">
+      <DependentUpon>ToolTip2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Transition\FadeTransition.cs" />
     <Compile Include="Controls\Transition\SlideTransition.cs" />
     <Compile Include="Controls\Transition\TransitionBase.cs" />
@@ -291,6 +294,10 @@
     <Page Include="Controls\ToolTip\Themes\ToolTip.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Controls\ToolTip\ToolTip2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Upload\Themes\Generic.xaml">
       <SubType>Designer</SubType>
