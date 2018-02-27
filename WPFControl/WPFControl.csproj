@@ -119,10 +119,14 @@
     <Compile Include="Controls\ToolTip\ToolTip2.xaml.cs">
       <DependentUpon>ToolTip2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Transition\FadeTransition.cs" />
-    <Compile Include="Controls\Transition\SlideTransition.cs" />
-    <Compile Include="Controls\Transition\TransitionBase.cs" />
-    <Compile Include="Controls\Transition\TransitionContainer.cs" />
+    <Compile Include="Controls\Transition\Implementation\CenterConverter.cs" />
+    <Compile Include="Controls\Transition\Implementation\HeightConverter.cs" />
+    <Compile Include="Controls\Transition\Implementation\InvertConverter.cs" />
+    <Compile Include="Controls\Transition\Implementation\PageTransition.xaml.cs">
+      <DependentUpon>PageTransition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Transition\Implementation\PageTransitionType.cs" />
+    <Compile Include="Controls\Transition\Implementation\WidthConverter.cs" />
     <Compile Include="Controls\Upload\Implementation\Upload.cs" />
     <Compile Include="Controls\WatermarkTextBox\Implementation\WatermarkTextBox.cs" />
     <Compile Include="Converter\BoolToValueConverter.cs" />
@@ -296,6 +300,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Controls\ToolTip\ToolTip2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Transition\Implementation\PageTransition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
