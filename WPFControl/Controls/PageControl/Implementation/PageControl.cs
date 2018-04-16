@@ -27,6 +27,11 @@ namespace WPFControl.Controls
         protected TextBox txtPage;
         protected ComboBox cmbPageSizes;
 
+        private bool isSearch = true;
+        private bool isFirstLoad = true;
+
+        int _totalRecords = 0;
+        int _pageSize = 10;
         #endregion
 
         #region PROPERTIES
@@ -39,6 +44,7 @@ namespace WPFControl.Controls
         public static readonly DependencyProperty PageSizesProperty;
         public static readonly DependencyProperty PageContractProperty;
         public static readonly DependencyProperty FilterProperty;
+        public static readonly DependencyProperty TypeProperty;
 
         public ObservableCollection<object> ItemsSource
         {
@@ -64,7 +70,17 @@ namespace WPFControl.Controls
             }
         }
 
-        
+        public int Type
+        {
+            get
+            {
+                return (int)GetValue(TypeProperty);
+            }
+            set
+            {
+                SetValue(TypeProperty, value);
+            }
+        }
 
         public int CurrentPage
         {
@@ -175,13 +191,15 @@ namespace WPFControl.Controls
 
         #region CONTROL CONSTRUCTORS
 
+        public static PageControl ImportantPageControl { get; set; }
+
         static PageControl()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PageControl), new FrameworkPropertyMetadata(typeof(PageControl)));
 
             ItemsSourceProperty = DependencyProperty.Register("ItemsSource", typeof(ObservableCollection<object>), typeof(PageControl), new PropertyMetadata(new ObservableCollection<object>()));
 
-            CurrentPageProperty= DependencyProperty.Register("CurrentPage", typeof(int), typeof(PageControl));
+            CurrentPageProperty = DependencyProperty.Register("CurrentPage", typeof(int), typeof(PageControl));
 
             PageProperty = DependencyProperty.Register("Page", typeof(int), typeof(PageControl));
 
@@ -195,6 +213,8 @@ namespace WPFControl.Controls
 
             FilterProperty = DependencyProperty.Register("Filter", typeof(object), typeof(PageControl), new FrameworkPropertyMetadata(Target));
 
+            TypeProperty = DependencyProperty.Register("Type", typeof(int), typeof(PageControl));
+
             PreviewPageChangeEvent = EventManager.RegisterRoutedEvent("PreviewPageChange", RoutingStrategy.Bubble, typeof(PageChangedEventHandler), typeof(PageControl));
 
             PageChangedEvent = EventManager.RegisterRoutedEvent("PageChanged", RoutingStrategy.Bubble, typeof(PageChangedEventHandler), typeof(PageControl));
@@ -202,15 +222,29 @@ namespace WPFControl.Controls
 
         private static async void Target(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
+
             var target = (PageControl)dependencyObject;
-           await target.Navigate(PageChanges.Current);
+            // 为了强制同步控件页码，后续作废
+            var tuple = target.Filter as Tuple<int, int, int>;
+            if (tuple == null)
+            {
+                target.isSearch = true;
+                await target.Navigate(PageChanges.Current);
+            }
+            else
+            {
+                target.isSearch = false;
+                target.cmbPageSizes.SelectedValue = tuple.Item1;
+                target.Page = tuple.Item2;
+                target.TotalPages = tuple.Item3;
+            }
         }
 
         public PageControl()
         {
             this.Loaded += new RoutedEventHandler(PaggingControl_Loaded);
         }
-        
+
 
         ~PageControl()
         {
@@ -220,7 +254,7 @@ namespace WPFControl.Controls
         #endregion
 
         #region EVENTS
-
+        private bool isRegister = false;
         void PaggingControl_Loaded(object sender, RoutedEventArgs e)
         {
             if (Template == null)
@@ -230,15 +264,19 @@ namespace WPFControl.Controls
 
             if (PageContract == null)
             {
-                throw new Exception("IPageControlContract not assigned.");
+                //   throw new Exception("IPageControlContract not assigned.");
+            }
+            if (!isRegister)
+            {
+                RegisterEvents();
+                SetDefaultValues();
+                BindProperties();
+                isRegister = true;
             }
 
-            RegisterEvents();
-            SetDefaultValues();
-            BindProperties();
         }
 
-        async void  btnFirstPage_Click(object sender, RoutedEventArgs e)
+        async void btnFirstPage_Click(object sender, RoutedEventArgs e)
         {
 
             await Navigate(PageChanges.First);
@@ -246,7 +284,7 @@ namespace WPFControl.Controls
 
         async void btnPreviousPage_Click(object sender, RoutedEventArgs e)
         {
-           await Navigate(PageChanges.Previous);
+            await Navigate(PageChanges.Previous);
         }
 
         async void btnNextPage_Click(object sender, RoutedEventArgs e)
@@ -263,14 +301,24 @@ namespace WPFControl.Controls
 
         async void txtPage_LostFocus(object sender, RoutedEventArgs e)
         {
-            await  Navigate(PageChanges.Current);
-           
-            
+            await Navigate(PageChanges.Current);
+
+
         }
 
         async void cmbPageSizes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           await Navigate(PageChanges.Current);
+            if (isFirstLoad)
+            {
+                if (Page == 0)
+                    Page = 1;
+                if (TotalPages == 0)
+                    TotalPages = 1;
+                isFirstLoad = false;
+                return;
+            }
+            if (isSearch)
+                await Navigate(PageChanges.Current);
         }
 
         #endregion
@@ -317,17 +365,22 @@ namespace WPFControl.Controls
             btnLastPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
             btnFirstPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ffffff"));
 
-            if (txtPage.Text == TotalPages.ToString()) btnLastPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#009bff"));
-            if (txtPage.Text == "1") btnFirstPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#009bff"));
+            if (txtPage.Text == TotalPages.ToString())
+                btnLastPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#009bff"));
+            if (txtPage.Text == "1")
+                btnFirstPage.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#009bff"));
         }
 
         private async void TxtPage_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if(e.Key==System.Windows.Input.Key.Enter)  txtPage_LostFocus(null,null);
+            if (e.Key == System.Windows.Input.Key.Enter)
+                txtPage_LostFocus(null, null);
         }
 
         private void UnregisterEvents()
         {
+            if (btnFirstPage == null)
+                return;
             btnFirstPage.Click -= btnFirstPage_Click;
             btnPreviousPage.Click -= btnPreviousPage_Click;
             btnNextPage.Click -= btnNextPage_Click;
@@ -336,7 +389,7 @@ namespace WPFControl.Controls
             txtPage.LostFocus -= txtPage_LostFocus;
             txtPage.KeyDown -= TxtPage_KeyDown;
 
-            
+
             cmbPageSizes.SelectionChanged -= cmbPageSizes_SelectionChanged;
         }
 
@@ -350,7 +403,7 @@ namespace WPFControl.Controls
 
         private void BindProperties()
         {
-          
+
             Binding propBinding;
 
             propBinding = new Binding("Page");
@@ -382,78 +435,193 @@ namespace WPFControl.Controls
 
         private async Task Navigate(PageChanges change)
         {
-           
-            int totalRecords;
-            int newPageSize;
-
-            if (PageContract == null)
+            try
             {
-                return;
+
+                if (Type == 1)
+                {
+                    await Navigate1(change);
+                    return;
+                }
+
+                int totalRecords;
+                int newPageSize;
+
+                if (PageContract == null)
+                {
+                    return;
+                }
+
+
+                TotalRecords = totalRecords = await PageContract.GetTotalCount();
+                if (cmbPageSizes == null || cmbPageSizes.SelectedItem == null)
+                    newPageSize = 10;
+                else
+                    newPageSize = (int)cmbPageSizes.SelectedItem;
+
+                if (totalRecords == 0)
+                {
+                    ItemsSource.Clear();
+                    TotalPages = 1;
+                    Page = 1;
+                }
+                else
+                {
+                    TotalPages = (totalRecords + newPageSize - 1) / newPageSize;
+
+                }
+
+                int newPage = 1;
+
+                switch (change)
+                {
+                    case PageChanges.First:
+                        if (Page == 1)
+                        {
+                            return;
+                        }
+                        break;
+                    case PageChanges.Previous:
+                        newPage = (Page - 1 > TotalPages) ? TotalPages : (Page - 1 < 1) ? 1 : Page - 1;
+                        break;
+                    case PageChanges.Current:
+                        newPage = (Page > TotalPages) ? TotalPages : (Page < 1) ? 1 : Page;
+                        break;
+                    case PageChanges.Next:
+                        newPage = (Page + 1 > TotalPages) ? TotalPages : Page + 1;
+                        //(Page + 1) < 1 ? 1 :
+                        break;
+                    case PageChanges.Last:
+                        if (Page == TotalPages)
+                        {
+                            return;
+                        }
+                        newPage = TotalPages;
+                        break;
+                    default:
+                        break;
+                }
+
+                var startingIndex = (newPage - 1) * newPageSize;
+
+                var oldPage = Page;
+                RaisePreviewPageChange(Page, newPage);
+
+                Page = newPage;
+
+
+
+                ICollection<object> fetchData = await PageContract.GetRecordsBy(Page, newPageSize, Filter);
+                if (ItemsSource != null && ItemsSource.Count > 0)
+                {
+                    ItemsSource.Clear();
+                }
+                foreach (object row in fetchData)
+                {
+                    ItemsSource.Add(row);
+                }
+
+                RaisePageChanged(oldPage, Page);
+
+            }
+            catch (Exception ex)
+            {
             }
 
+        }
 
-            TotalRecords=totalRecords = await PageContract.GetTotalCount();
-            newPageSize = (int)cmbPageSizes.SelectedItem;
-
-            if (totalRecords == 0)
+        private async Task Navigate1(PageChanges change)
+        {
+            try
             {
-                ItemsSource.Clear();
-                TotalPages = 1;
-                Page = 1;
+
+
+
+
+                if (PageContract == null)
+                {
+                    return;
+                }
+
+
+
+                if (cmbPageSizes == null || cmbPageSizes.SelectedItem == null)
+                    _pageSize = 10;
+                else
+                    _pageSize = (int)cmbPageSizes.SelectedItem;
+
+                int newPage = 1;
+
+                switch (change)
+                {
+                    case PageChanges.First:
+                        if (Page == 1)
+                        {
+                            return;
+                        }
+                        break;
+                    case PageChanges.Previous:
+                        newPage = (Page - 1 > TotalPages) ? TotalPages : (Page - 1 < 1) ? 1 : Page - 1;
+                        break;
+                    case PageChanges.Current:
+                        newPage = (Page > TotalPages) ? TotalPages : (Page < 1) ? 1 : Page;
+                        break;
+                    case PageChanges.Next:
+                        newPage = (Page + 1 > TotalPages) ? TotalPages : Page + 1;
+                        break;
+                    case PageChanges.Last:
+                        if (Page == TotalPages)
+                        {
+                            return;
+                        }
+                        newPage = TotalPages;
+                        break;
+                    default:
+                        break;
+                }
+
+
+                Page = newPage;
+
+                var data = await PageContract.GetRecords(Page, _pageSize, Filter);
+                ICollection<object> fetchData = data.Item1;
+                _totalRecords = data.Item2;
+                if (_totalRecords == 0)
+                {
+                    ItemsSource.Clear();
+                    TotalPages = 1;
+                    Page = 1;
+                }
+                else
+                {
+                    TotalPages = (_totalRecords + _pageSize - 1) / _pageSize;
+
+                }
+
+
+
+
+
+
+
+
+
+                if (ItemsSource != null && ItemsSource.Count > 0)
+                {
+                    ItemsSource.Clear();
+                }
+                foreach (object row in fetchData)
+                {
+                    ItemsSource.Add(row);
+                }
+
+
+
             }
-            else
+            catch (Exception ex)
             {
-                TotalPages = (totalRecords + newPageSize - 1) / newPageSize;
-               // TotalPages = (totalRecords / newPageSize) + (int)((totalRecords % newPageSize == 0) ? 0 : 1);
             }
 
-            int newPage = 1;
-
-            switch (change)
-            {
-                case PageChanges.First:
-                    if (Page == 1)
-                    {
-                        return;
-                    }
-                    break;
-                case PageChanges.Previous:
-                    newPage = (Page - 1 > TotalPages) ? TotalPages : (Page - 1 < 1) ? 1 : Page - 1;
-                    break;
-                case PageChanges.Current:
-                    newPage = (Page > TotalPages) ? TotalPages : (Page < 1) ? 1 : Page;
-                    break;
-                case PageChanges.Next:
-                    newPage = (Page + 1 > TotalPages) ? TotalPages : Page + 1;
-                    //(Page + 1) < 1 ? 1 :
-                    break;
-                case PageChanges.Last:
-                    if (Page == TotalPages)
-                    {
-                        return;
-                    }
-                    newPage = TotalPages;
-                    break;
-                default:
-                    break;
-            }
-
-            var startingIndex = (newPage - 1) * newPageSize;
-
-            var oldPage = Page;
-            RaisePreviewPageChange(Page, newPage);
-
-            Page = newPage;
-
-            ItemsSource.Clear();
-            //ICollection<object> fetchData =await PageContract.GetRecordsBy(startingIndex, newPageSize, Filter);
-            ICollection<object> fetchData = await PageContract.GetRecordsBy(Page, newPageSize, Filter);
-            foreach (object row in fetchData)
-            {
-                ItemsSource.Add(row);
-            }
-
-            RaisePageChanged(oldPage, Page);
         }
 
         #endregion

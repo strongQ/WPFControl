@@ -136,6 +136,8 @@ namespace WPFControl.Controls
     {
         Dept,
         Police,
-        Record    
+        Record,
+        List,
+        Map
     }
 }

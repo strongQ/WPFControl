@@ -85,3 +85,4 @@ F:\git\WPFControl\WPFControl\Transitionals\bin\Debug\Transitionals.dll.lastcodea
 F:\git\WPFControl\WPFControl\Transitionals\obj\Debug\Controls\Slideshow.baml
 F:\git\WPFControl\WPFControl\Transitionals\obj\Debug\Transitionals.g.resources
 F:\git\WPFControl\WPFControl\Transitionals\obj\Debug\Transitionals.csproj.CoreCompileInputs.cache
+F:\git\WPFControl\WPFControl\Transitionals\obj\Debug\Transitionals.csprojResolveAssemblyReference.cache

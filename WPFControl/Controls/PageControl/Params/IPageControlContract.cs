@@ -10,5 +10,6 @@ namespace WPFControl.Controls.PagingControl.Params
     {
         Task<int> GetTotalCount();
         Task<ICollection<object>> GetRecordsBy(int startingIndex, int numberOfRecords, object sortData);
+        Task<Tuple<ICollection<object>, int>> GetRecords(int startingIndex, int numberOfRecords, object sortData);
     }
 }
